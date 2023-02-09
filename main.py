@@ -1,16 +1,15 @@
-# This is a sample Python script.
+import PySimpleGUI as sg
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+level1 = sg.Text("Select File to Compress: ")
+input1 = sg.Input(tooltip="Select File to Compress")
+btn1 = sg.FilesBrowse("Choose")
 
+level2 = sg.Text("Select destination folder: ")
+input2 = sg.Input()
+btn2 = sg.FolderBrowse("Choose")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+compress_btn = sg.Button("Compress")
 
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+window = sg.Window("File Compresser",layout = [[level1,input1,btn1],[level2,input2,btn2],[compress_btn]])
+window.read()
+window.close()
